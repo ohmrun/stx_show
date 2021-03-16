@@ -10,7 +10,7 @@ package stx;
 // }
 
 class Show {
-  @:noUsing static public function show<A>(wildcard:Wildcard,v:A):String{
+  static public function show<A>(wildcard:Wildcard,v:A):String{
     return make(v)(v);
   }
   @:noUsing static private function __show__<T>(impl : Dynamic->String) : T -> String {
