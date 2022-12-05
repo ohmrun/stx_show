@@ -1,0 +1,13 @@
+{
+  "build" : {
+    "-D"    : ["no-deprecation-warnings"],
+    "-cp"   : ["src/main/haxe"],
+    "-lib"  : ["tink_core","stx_pico","stx_nano","stx_fn","stx_test"],
+    "test"  : {
+      "-main" : "stx.show.Test",
+      "interp" : {
+        "--interp" : true
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@ class Show {
     Returns a ShowFunction (T -> String). It works for any Stdtype. For Custom Classes you must provide a toString()
     method, otherwise the full class name is returned.
   */
-  public static function make<T>(t : T) : T -> String{
+  @:noUsing static public function make<T>(t : T) : T -> String{
     return make0(StdType.typeof(t));
   }
 
@@ -28,7 +28,7 @@ class Show {
     @:todo Reflect.fields doesn't work consistenly across platforms so we may probably pass to use StdType.getInstanceFields. The problem here
     is that we must check if the fields are functions before grabbing the value.
   */
-  public static function make0<T>(v : ValueType) : T->String {
+  @:noUsing static public function make0<T>(v : ValueType) : T->String {
     return switch(v) {
       case TBool                        : __show__(BoolShow.toString);
       case TInt                         : __show__(IntShow.toString);
@@ -160,3 +160,11 @@ private class BoolShow {
     return if (v) "true" else "false";
   }
 }
+
+typedef ShowFailure     = stx.fail.ShowFailure;
+typedef ShowFailureSum  = stx.fail.ShowFailure.ShowFailureSum;
+
+typedef ShowableDef<T>  = stx.show.Showable.ShowableDef<T>;
+typedef ShowableCls<T>  = stx.show.Showable.ShowableCls<T>;
+typedef ShowableApi<T>  = stx.show.Showable.ShowableApi<T>;
+typedef Showable<T>     = stx.show.Showable.Showable<T>;

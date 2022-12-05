@@ -1,7 +1,7 @@
 package stx.show.term;
 
-class Indented<Dynamic> extends Clazz{
-  public function show(v:Dynamic,indent:Indent):String{
+class Indented<T> extends Clazz{
+  public function show(v:T,indent:String):String{
     return '${indent}${v}';
   }
 }
