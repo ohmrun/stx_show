@@ -2,8 +2,10 @@
   "build" : {
     "-D"    : ["no-deprecation-warnings"],
     "-cp"   : ["src/main/haxe"],
-    "-lib"  : ["tink_core","stx_pico","stx_nano","stx_fn","stx_test"],
+    "-lib"  : ["tink_core","stx_pico","stx_nano","stx_fn"],
     "test"  : {
+      "-lib"  : ["stx_test"],
+      "-cp"   : "src/test/haxe",
       "-main" : "stx.show.Test",
       "interp" : {
         "--interp" : true
