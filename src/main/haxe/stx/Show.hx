@@ -1,4 +1,4 @@
-package stx.show;
+package stx;
 
 // abstract Indent(String) from String{
 //   public function toString(){
